@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Google Analytics -->
+      <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         
+         ga('create', 'UA-78894627-1', 'auto');
+         ga('send', 'pageview');
+      </script>
+      <!-- End Google Analytics -->
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>Thomas Putt &mdash; Digital Product Design</title>
+      <meta name="description" content="Product Designer">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
+      <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+      <link rel="manifest" href="img/favicon/manifest.json">
+      <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#333333">
+      <link rel="shortcut icon" href="img/favicon/favicon.ico">
+      <meta name="apple-mobile-web-app-title" content="Thomas Putt">
+      <meta name="application-name" content="Thomas Putt">
+      <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
+      <meta name="theme-color" content="#ffffff">
+      <link rel="preload" href="fonts/NeueHaasDisplay-Medium.ttf" as="font" type="font/truetype" crossorigin>
+      <link rel="stylesheet" href="css/main.css">
+   </head>
+   <body id="inversecolors">
+      <script>
+         document.body.className = 'fade';
+      </script>
+      <div class="progress-wrapper">
+         <div class="progress-container">
+            <div class="progress-barblue" id="myBar"></div>
+         </div>
+      </div>
+      <header class="wrapper casestudyheader" id="top">
+         <a href="index.html"><img class="logo" src="img/logo-black.svg" alt="Thomas Putt"></a>
+      </header>
+      <section class="cover-home casestudy-home">
+         <div class="cover-text">
+            <h1 class="h1">Redesigning Movember’s app for mo’ donations. This is the story of how I applied human-centered design to create positive social impact for men’s health globally.</h1>
+         </div>
+         <a class="scroll-arrow" data-scroll href="#work" title="View Work"><img src="img/scroll-arrow-black.svg" alt="Scroll down arrow"></a>
+      </section>
+      <section class="work-item casestudy" id="work">
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/intro.jpg" alt="Movember user" >
+         <h3>Project details</h3>
+         <p>
+            Movember was initially a whimsical marketing campaign which encouraged men to grow moustaches to raise awareness for prostate cancer during the month of November. The campaign spread like wildfire and the charity is now responsible for raising $55.5 million (USD) annually through their mobile and web platforms.
+         </p>
+         <h4>My role</h4>
+         <p>
+            While leading the design team at jtribe, a product development consultancy, we were tasked with Movember’s 2017 app design refresh for iOS. Our team’s primary responsibility was user research, conceptualising and prototyping product ideas, interactions and design direction. In addition to overseeing the design team and contributing to the app’s design, I liaised with key stakeholders, such as product owners, business analysts, researchers and engineers. 
+         </p>
+    
+         <h3>The challenge</h3>
+         <h4>Problem 1 &mdash; Early drop-offs</h4>
+         <p>
+            Fundraisers were churning alarmingly fast within the first few days of the campaign with a slight spike in activity towards the end.
+         </p>
+         <figure>
+            <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/graph.png" alt="Churn Rate" >
+            <figcaption>Existing engagement from the previous year’s campaign.</figcaption>
+         </figure>
+         <h4>Problem 2 &mdash; The paradox of choice</h4>
+         <p>
+            The combination of eager users willing to provide feedback and product owners focused on shipping quantity over quality meant that Movember's app became severely bloated with dozens of overwhelming features; it contained over 150+ pages. Although we couldn't prove this to be the cause of our user drop-off, we relied upon existing research on <a href="https://sites.lib.byu.edu/education/wp-content/uploads/sites/8/2008/02/defeating-feature-fatigue.pdf">feature fatigue</a> and behavioral theories such as <a href="https://en.wikipedia.org/wiki/The_Paradox_of_Choice"> the paradox of choice</a> to highlight this as a key problem.
+         </p>
+         <figure>
+            <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/before.jpg" alt="Previous UX" >
+            <figcaption>Movember's old app design &mdash; After digging deeper into the old experience, I noticed other UX red flags, such as poor grouping (law of proximity), tiny hit targets and the combination of multiple navigation paradigms (tab bar & hamburger).</figcaption>
+         </figure>
+         <h3>Framing measurable experiments</h3>
+         <p>
+            We started to define the app's success criteria by using the lean UX technique of <a href="https://www.oreilly.com/library/view/lean-ux/9781491983690/video308624.html">experiment stories</a>. These helped make sure we had measurable signals for our initial hypothesis, while serving as a great way to align the team on project goals from the onset. It was crucial to keep the descriptions open-ended so we didn't limit our potential solutions too early.
+         </p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/exp-stories.png" alt="Experiment Stories" >
+         <h4> 1 app in 2 months</h4>
+         <p>
+            We were under immense pressure to move quickly as the immovable launch date was two months away, coinciding with the campaign start date of November 1st. In addition to being respectful of the campaign timeline, we had to accommodate the time associated with app store submissions, penetration testing and quality assurance. Due to the overall app development time constraints, I needed to finalize the app design experience within the first four weeks of the project starting.
+         </p>
+         <h3>The approach</h3>
+         <p>
+            The team was excited with our new shared understanding of the project goals, spurring them to create a wealth of ideas to help users become better fundraisers. Some stakeholders were attached to concepts which took years to make, while newer stakeholders seized the opportunity to validate their new ideas.
+         </p>
+         <p> While the enthusiasm was great, we didn’t have time to get bogged down in group-think driven feature debates and technical feasbility sessions over solutions that hadn't been vetted. 
+         </p>
+         <h4>Moving quickly with dual track agile</h4>
+         <p>
+            To compress decision-making and to move quickly, I proposed a two-pronged design strategy that decoupled both experiment stories while giving them individual work streams.
+         </p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/dual-stream.png" alt="Dual track agile" >
+         <p>
+            By doing this, if the "New Fundraising Feature" experiment stream failed, we were able to fall back on a decent MVP for launch.
+         </p>
+         <p>
+            We referred to Stephen Anderson’s UX hierarchy of needs to keep our MVP centered around features the users cared most about.
+         </p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/needs.png" alt="Heirachy of UX needs" >
+         <h3>What does Movember mean to our fundraisers?</h3>
+         <p>
+            Movember’s analytics indicated a significant drop-off early in the product experience for fundraisers, but we didn’t know <strong>why</strong>. We conducted user interviews to better understand their experience while using the app.
+         </p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/interview1.png" alt="Interview Data" >
+         <h4>Key interview trends</h4>
+         <ul>
+            <li><strong>Set and forget:</strong> fundraisers usually promoted their cause at the start of the campaign and at the end. They didn’t see the point of consistently sharing throughout the month. Adopting what had become known internally as the “set-and-forget” mindset.</li>
+            <li><strong>Established communities:</strong> although engagement with the app slumped after week 1, fundraisers would continue to engage within their fenced off communities via Whatsapp, Messenger and group texts, often sharing progress selfies and fundraising progress.</li>
+            <li><strong>Strong and silent types:</strong> a big part of Movember’s brand at the time was advocating for Men to come forward and talk openly about their emotional and physical health. Surprisingly, just over 70% of the fundraisers we talked to preferred being discreet about how they were personally motivated to participate in Movember.</li>
+            <li><strong>Stunted discovery:</strong> users were unaware of existing engaging features such the Mo Tracker (a progress timelapse generator) due to the features being buried deep behind complex IA.</li>
+         </ul>
+         <p>
+            Movember had spent a lot of previous effort essentially building “another social network”. Overwhelmed, It was clear this direction had pushed users into using their preferred networks (Facebook, Whatsapp) to facilitate dialogue. This confirmed we were heading in the right direction in stripping back the app to its basics.
+         </p>
+         <h4>Creating proto personas</h4>
+         <p>
+            Behavioural patterns had emerged from our interviews and allowed us to segment different archetypes while uncovering new ones. These insights not only shaped our proto personas, but also helped us establish a framework for the behavioural variables that caused our audience to sit in different camps. These variables were categorized into frequency of app use and promotion effort.
+         </p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/proto1.png" alt="Persona Dan" >
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/proto2.png" alt="Persona Chris" >
+         <p>Circulating this from the onset helped us focus on what matters most to fundraisers and built empathy amongst the client and our team. It also helped prioritise our core audience and allowed us all to refine user needs as we learned more.</p>
+         <h3>Piecing together the Movember journey</h3>
+         <p>With the tight deadline looming, we opted for efficient user research techniques in order to build an understanding of the customers’ product experience. We leveraged our user interviews; App Store reviews; Localytics and looked to social media in order to gauge our users’ needs and pain points throughout Movember’s campaign month.</p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/journeymap.png" alt="Customer Journey" >
+         <h3>Extracting user stories from mental models</h3>
+         <p>From this exercise we had a high-level understanding of how Movember users were moving through the product, but there were still gaps when examining the granular details of the app experience. To address this, I combed through existing research and used mental models to unpack users’ behaviors before, during and after Movember campaign; this gave the team a way to visualize what existing features were critical, what features could be discarded and what opportunities were ripe for innovation.</p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/mentalmodels.png" alt="Mental Models" >
+         <p>Working with the product owners and engineers, we were able to use mental models to influence the first cut of MVP user stories.</p>
+         <h3>Making the experience instantly familiar</h3>
+         <p>There's nothing more frustrating than feeling lost after a redesign, in fact, we've seen companies like Snapchat be <a href="https://techcrunch.com/2018/01/11/snapchat-redesign-uninstall/">serverely impacted</a> by pulling the rug out from underneath existing users.</p>
+         <p>It was important for users to be instantly familiar with the app without the need for feature or structured onboarding. We used card sorting exercises to try out new ways of organizing content in a way our users could immediately understand.</p>
+         <figure>
+            <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/IA.jpg" alt="Card Sorting" >
+            <figcaption>We used Thoughtbot's <a href="https://thoughtbot.com/blog/card-sorting">card sorting</a> exercise to build consensus on where people expected content to live</figcaption>
+         </figure>
+         <h3>Creating a consistent branded experience</h3>
+         <p>Movember had just refreshed their branding collateral for 2017’s campaign. I took the opportunity to work closely with their marketing team to create experience principles that would permeate throughout the app. These principles were used among the entire team to constantly drive the aesthetic, feel and overall tonal direction of the app.</p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/brand.png" alt="Brand Tone" >  
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/brand2.png" alt="Brand Guidelines" > 
+         <h3>Setting the design direction</h3>
+         <p>With a clear understanding of the pared back user needs and structural expectations, I began sketching stacks of different approaches for the underlying UX, considering functional and API constraints, arrangement of UI and interactive behaviours. Having quick, iterative feedback loops among the team started to transform the product’s vision into something tangible.</p>
+         <figure>
+            <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/diverge.jpg" alt="Rough UX sketches" >
+            <figcaption>Using the speed critique exercise from the Design Sprint Playbook helped flag API constraints and smooth kinks early on.</figcaption>
+         </figure>
+         <h4>Rapid prototyping</h4>
+         <p>Using Sketch with <a href="https://www.invisionapp.com/craft">Craft's</a> plugin to prototype allowed me to dial-up the fidelity, explore and update a range of ideas at a breakneck speed. We eventually distilled the designs to two different directions for our users to weigh-in on.</p>
+         <p>Greyscale designs ensured we avoided subjective color conversations from derailing constructive team critiques.</p>
+         <figure>
+            <video preload playsinline loop autoplay muted poster="img/casestudy/movember/ABtest.jpg" title="A/B Test" class="b-lazy responsiveimg">
+               <source data-src="img/casestudy/movember/ABtest.mp4" type="video/mp4">
+               Your browser doesn't support HTML5 video.
+            </video>
+            <figcaption><strong>Left:</strong> the first version grouped content into sections with tabs <strong>Right</strong>: The second version housed content in-line and encouraged discovery via long form content.</figcaption>
+         </figure>
+         <h4>A/B testing early frameworks</h4>
+         <p>We tested both concepts on sample size of 70 users internationally. In order for us to choose the best experience, we judged both versions on the time it took to complete core tasks as well as general preference.</p>
+         <p>Although 73% leaned towards the scrolled content experience (second option), people still felt excessive scrolling could be potentially tiring if there was too much content to manage on their page. We went back to the drawing board to try and fix this.</p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/ABdata.png" alt="User Testing Data" >
+         <p>Despite mixed A/B results, users responded well to the overall redesign, navigating fluidly between features they cared about while discovering existing useful features that had previously gone unnoticed.</p>
+         <h4>Fine-tuning the chosen direction</h4>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/updates.png" alt="Updating the UX" >
+         <div class='row'>
+            <div class='column'>
+               <div>
+                  <p>We removed in-app notifications as users couldn't be bothered managing them and generally preferred the combination of email and push notifications to keep them updated.</p>
+               </div>
+            </div>
+            <div class='column'>
+               <div>
+                  <p>We made sharing and adding a post/move accessible anytime, anywhere from a fixed header as we had initially underestimated the importance of these call to actions.</p>
+               </div>
+            </div>
+            <div class='column'>
+               <div>
+                  <p>We created a hybrid scrolling experience which combined tabbed content within a long form page to avoid scrolling fatigue which our users were concerned about.</p>
+               </div>
+            </div>
+         </div>
+         <h3>Design sprinting our way to delight</h3>
+         <p>Having addressed the core functionality of the MVP, we were able to turn our attention towards creating an innovative fundraising feature in which to improve user retention and increase donations.</p>
+         <p>Existing research in conjunction with a shared understanding of the problem meant that we could delve straight into the divergent and convergent phases of the design sprint. Our challenge was to <strong>help Movember users become better fundraisers</strong>.</p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/bjfogg.jpg" alt="BJ Fogg's modelling" >
+         <p>Instead of focusing our solutions on a chosen part of “the map” (as suggested by <a href="https://www.gv.com/sprint/"><i>The Design Sprint Book</i></a>), I proposed we use <a href="https://www.bjfogg.com/">BJ Fogg’s</a> behaviour model to vote on known psychological triggers to inform our solutions. By abstracting these touchpoints, our solutions could be better catered for non-linear customer journeys, such as people joining the cause later in the month. This strategy allowed us to fluidly conceptualize based on campaign moments.</p>
+         <h4>Visualizing solutions</h4>
+         <p>After shortlisting and collating the winning triggers and How Might We’s, the team conceptualized and voted on a range of ideas to be prototyped.</p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/sprintideas.jpg" alt="Rough sprint sketches" >
+         <div class='row'>
+            <div class='column'>
+               <div>
+                  <p><strong>Chosen idea #1 &mdash; The Donation Booster</strong>: evidence demonstrated that people were generally bad at promoting their page. The “donation booster” concept aimed to solve this by suggesting practical ways in which to boost donations throughout the campaign, such as setting up share reminders or suggesting potential sponsors. We also incorporated gamification principles; completing these boosters would unlock tangible rewards along the way. </p>
+               </div>
+            </div>
+            <div class='column'>
+               <div>
+                  <p><strong>Chosen Idea #2 &mdash; The Mo-Voter:</strong> the idea I put forward took inspiration from our customer journey map by tapping into the initial offline comradery and excitement leading up to Movember. Using AR, it enabled fundraisers to take friends on the Movember journey by letting them vote and ultimately choose the fundraisers moustache style. This idea set out to increase peers’ emotional investment in the campaign, while motivating the fundraiser with extrinsic milestones.</p>
+               </div>
+            </div>
+         </div>
+         <h4 class="colpadding">Prototyping the winner</h4>
+         <p> The "donation booster” concept was chosen to be prototyped because it served as a better catalyst for testing a range of donation methods, rather than one. However, we also incorporated the AR camera concept to see if users found it engaging.</p>
+         <p>We used Sketch and Invision to prototype the flow while using Google’s vision API to quickly develop and simulate our rudimentary camera concept.</p>
+         <video preload playsinline loop autoplay muted poster="img/casestudy/movember/sprinttest.jpg" title="A/B Test" class="b-lazy responsiveimg">
+            <source data-src="img/casestudy/movember/sprinttest.mp4" type="video/mp4">
+            Your browser doesn't support HTML5 video.
+         </video>
+         <h4>Mixed results</h4>
+         <p>While the camera provided significant amusement among our testers, the donation booster concept wasn’t performing as we had hoped; people didn't see the need to be guided on becoming better page promoters. Overall, it had the opposite effect, often portrayed as a chore, rather than a delight.</p>
+         <p>We were blindsided by our assumption that users <strong>wanted</strong> to improve their fundraising abilities. After debriefing, we realized we were approaching the design sprint challenge inwardly &mdash; our solution to make our users better fundraisers was to retain, educate and delight them in the app. But what if we looked outward?</p>
+         <h3>Pivoting to a content creation tool</h3>
+         <p>Our research had shown that fundraisers were exchanging campaign banter and selfies within their own group chats during the drop-off period. While discussing this insight, we started to ask ourselves — what if we tapped into these group chats by giving the fundraisers tools to create shareable content? Would the shareable content be engaging enough to share with their wider network? If so, would it drive donations?</p>
+         <p>A new direction started to formulate and we decided to use the well received camera concept as the catalyst for this new experiment.</p>
+         <figure>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/cameraui.jpg" alt="Refining the camera" >
+         <figcaption>We added the camera to the MVP backlog and began to refine the experience with the addition of stickers and contextual filters.</figcaption>
+         </figure>
+         <h3>Creating the visual and interaction layer</h3>
+         <p>Development was well underway, but our launch date was rapidly approaching. We increased the cadence of design reviews with our engineering team to tackle effort concerns, sketch quick wins and ensure we re-used design patterns economically.</p>
+         <figure>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/wall.jpg" alt="Rough visual concepts stuck to the wall" >
+         <figcaption> We opted for frequent discussions instead of detailed specs to save time.</figcaption>
+         </figure>
+         <h4>Make important things quick and easy</h4>
+         <p>The clean and simple experience is designed to provide fundraising progress at a glance. Progress bars provided a positive feedback loop to encourage target completion. We employed <a href="https://en.wikipedia.org/wiki/Fitts%27s_law">fitt's law</a> as a guiding principle to make sure critical actions were large and easy to reach.</p>
+         <p>We opted for clear, large and readable typography &mdash; choosing colors with high contrast to improve legibility.</p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/visual1.jpg" alt="Visual Designs Part 1" >
+         <h4>Storytelling with photos</h4>
+         <p>Majority of posted photos were moustache-centric. For this reason, the photos took up most of the visual weight to create both a personalised and branded experience. I contrasted this further with subtle and minimal supporting UI elements which had the additional benefit of emboldening calls-to-action. </p>
+         <video preload playsinline loop autoplay muted poster="img/casestudy/movember/visual2.jpg" title="Visual Designs Part 2" class="b-lazy responsiveimg">
+            <source data-src="img/casestudy/movember/visual2.mp4" type="video/mp4">
+            Your browser doesn't support HTML5 video.
+         </video>
+         <h4>Instantly familiar</h4>
+         <p>Leveraging selected iOS patterns from Apple’s HIG made the experience familiar, while ensuring scalability for future releases.</p>
+         <h3>Future-proofing the design direction for iOS11</h3>
+         <p>I made sure the app’s design language was cohesive with the soon-to-be release iOS11 software update which proposed a bold new design direction for Apple’s ecosystem. As Apple hadn't updated their guidelines to include iOS11 compatibility, I downloaded their beta to research their new design principles in detail.</p>
+         <p>This foresight resulted in the current app feeling up-to-date at the time of writing this (almost 2 years later).</p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/ios11.jpg" alt="iOS 11 design language" >
+         <h3>The impact</h3>
+         <p>The redesign was embraced by fundraisers across the world while the new content creation tools facilitated significant shares and donations. The app was featured globally in the App Store, resulting in a 40% increase in new users and a 25% improvement on the average session time.</p>
+         <p><i>Donation results omitted for client confidentiality</i>.</p>
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/outcome.jpg" alt="App outcome" >
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/outcome2.jpg" alt="Offline campaign" >
+         <img class="b-lazy responsiveimg" data-src="img/casestudy/movember/reviews.jpg" alt="App store reviews" >
+      </section>
+      <section class="contact">
+         <h3>Phew, that was long. Thanks for reading!</h3>
+         <p>Feel free to <a href="mailto:thomasputt@gmail.com">reach out</a> or check out some <a href="index.html">other work samples<a>.</p>
+      </section>
+      <script src="js/vendor/jquery-3.2.0.min.js"></script>
+      <script src="js/vendor/isInViewport.min.js"></script>
+      <script src="js/vendor/smooth-scroll.min.js"></script>
+      <script src="js/vendor/blazy.js"></script>
+      <script>
+         document.addEventListener("DOMContentLoaded", function(e) {
+           document.body.className = '';
+         });
+         
+          // Offset lazyload
+         var bLazy = new Blazy({ 
+             offset: 300 // 
+         });
+         
+         // When the user scrolls the page, execute myFunction 
+         window.onscroll = function() {myFunction()};
+         
+         function myFunction() {
+           var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+           var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+           var scrolled = (winScroll / height) * 100;
+           document.getElementById("myBar").style.width = scrolled + "%";
+         }
+         
+         $(window).scroll(function() {
+           $('.work-item video').each(function(){
+             if ($(this).is(":in-viewport")) {
+               $(this)[0].play();
+             } else {
+               $(this)[0].pause();
+             }
+           })
+         });
+         $(".play").click(function(e){
+           e.preventDefault();
+           $("#youtube-player").tubeplayer("play");
+           $(".showreel").addClass("open");
+           $("body").addClass("open");
+         });
+         $(".close").click(function(e) {
+           e.preventDefault();
+           $("#youtube-player").tubeplayer("stop");
+           $(".showreel").removeClass("open");
+           $("body").removeClass("open");
+         });
+         $(document).keyup(function(ev){
+           if(ev.keyCode == 27)
+             $(".close").trigger("click");
+         });
+         smoothScroll.init({
+           selector: '[data-scroll]',
+           speed: 1200,
+           easing: 'easeInOutQuint'
+         });
+      </script>
+   </body>
+</html>
