@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
    <head>
       <!-- Google Analytics -->
@@ -55,7 +55,7 @@
       </header>
       <section class="cover-home">
          <div class="cover-text">
-            <h1 class="h1">Hi &#128075;, I’m Tom. I design digital products that help people and businesses get along better.</h1>
+            <h1 class="h1" id="hero-title"><span id="typed-title-text" aria-hidden="true"></span><span class="typed-title-cursor" id="typed-title-cursor" aria-hidden="true"></span><span class="visually-hidden">Hi &#128075;, I’m Tom. I design digital products that help people and businesses get along better.</span></h1>
          </div>
       </section>
       <section class="work" id="work">
@@ -342,6 +342,72 @@
 
          $window.on('resize', updateScrollBackgrounds);
          updateScrollBackgrounds();
+      </script>
+
+      <!-- Hero title typing animation -->
+      <script>
+         (function () {
+            var fullText = 'Hi \uD83D\uDC4B, I\u2019m Tom. I design digital products that help people and businesses get along better.';
+            var h1     = document.getElementById('hero-title');
+            var wrap   = document.getElementById('typed-title-text');
+            var cursor = document.getElementById('typed-title-cursor');
+            if (!h1 || !wrap || !cursor) return;
+
+            /* build invisible char spans */
+            var chars = Array.from(fullText);
+            var spans = chars.map(function (ch) {
+               var s = document.createElement('span');
+               s.textContent = ch;
+               s.style.cssText = 'opacity:0;display:inline;transition:opacity 0.04s ease;';
+               wrap.appendChild(s);
+               return s;
+            });
+
+            /* move cursor to right edge of the last-revealed span */
+            function moveCursor(span) {
+               var hr = h1.getBoundingClientRect();
+               var sr = span.getBoundingClientRect();
+               cursor.style.transform =
+                  'translate3d(' + (sr.right - hr.left) + 'px,' + (sr.top - hr.top) + 'px,0)';
+            }
+
+            /* position cursor at left edge of wrap before typing starts */
+            function cursorToStart() {
+               var hr = h1.getBoundingClientRect();
+               var wr = wrap.getBoundingClientRect();
+               cursor.style.transform =
+                  'translate3d(' + (wr.left - hr.left) + 'px,' + (wr.top - hr.top) + 'px,0)';
+            }
+
+            var i = 0;
+            var speed = 46; /* ms per character — matches antigravity feel */
+
+            function typeChar() {
+               if (i >= spans.length) {
+                  /* typing done — fade out cursor after a beat */
+                  setTimeout(function () {
+                     cursor.style.transition = 'opacity 0.7s ease';
+                     cursor.style.opacity    = '0';
+                  }, 1800);
+                  return;
+               }
+               spans[i].style.opacity = '1';
+               moveCursor(spans[i]);
+               i++;
+               setTimeout(typeChar, speed);
+            }
+
+            function start() {
+               cursorToStart();
+               setTimeout(typeChar, 350);
+            }
+
+            if (document.readyState === 'loading') {
+               document.addEventListener('DOMContentLoaded', start);
+            } else {
+               start();
+            }
+         })();
       </script>
    </body>
 </html>
