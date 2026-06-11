@@ -384,8 +384,8 @@
 
             function typeChar() {
                if (i >= spans.length) {
-                  /* typing done — quick fade out */
-                  cursor.style.transition = 'opacity 0.25s ease';
+                  /* typing done — instant hide */
+                  cursor.style.transition = 'none';
                   cursor.style.opacity    = '0';
                   return;
                }
