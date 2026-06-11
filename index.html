@@ -55,7 +55,7 @@
       </header>
       <section class="cover-home">
          <div class="cover-text">
-            <h1 class="h1" id="hero-title"><span id="typed-title-text" aria-hidden="true"></span><span class="typed-title-cursor" id="typed-title-cursor" aria-hidden="true"></span><span class="visually-hidden">Hi &#128075;, I’m Tom. I design digital products that help people and businesses get along better.</span></h1>
+            <h1 class="h1" id="hero-title"><span id="typed-title-text" aria-hidden="true"></span><span class="typed-title-cursor" id="typed-title-cursor" aria-hidden="true"></span><span class="visually-hidden">Hi, I’m Tom. I design digital products that help people and businesses get along better.</span></h1>
          </div>
       </section>
       <section class="work" id="work">
@@ -347,7 +347,7 @@
       <!-- Hero title typing animation -->
       <script>
          (function () {
-            var fullText = 'Hi \uD83D\uDC4B, I\u2019m Tom. I design digital products that help people and businesses get along better.';
+            var fullText = 'Hi, I\u2019m Tom. I design digital products that help people and businesses get along better.';
             var h1     = document.getElementById('hero-title');
             var wrap   = document.getElementById('typed-title-text');
             var cursor = document.getElementById('typed-title-cursor');
@@ -384,11 +384,9 @@
 
             function typeChar() {
                if (i >= spans.length) {
-                  /* typing done — fade out cursor after a beat */
-                  setTimeout(function () {
-                     cursor.style.transition = 'opacity 0.7s ease';
-                     cursor.style.opacity    = '0';
-                  }, 1800);
+                  /* typing done — quick fade out */
+                  cursor.style.transition = 'opacity 0.25s ease';
+                  cursor.style.opacity    = '0';
                   return;
                }
                spans[i].style.opacity = '1';
@@ -399,7 +397,8 @@
 
             function start() {
                cursorToStart();
-               setTimeout(typeChar, 350);
+               /* blink twice (2 × 0.5s cycle) before typing begins */
+               setTimeout(typeChar, 1000);
             }
 
             if (document.readyState === 'loading') {
