@@ -78,7 +78,7 @@
             <div class="work-item-aap" aria-hidden="true">
                <div class="work-item-aap__shell">
                   <span class="work-item-aap__bg" aria-hidden="true"></span>
-                  <a href="#" class="work-item-aap__btn">
+                  <a href="#" id="btn-instagram" class="work-item-aap__btn" onclick="openCaseStudy('btn-instagram'); return false;">
                      <span class="work-item-aap__label">View case study</span>
                      <span class="work-item-aap__icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -113,7 +113,7 @@
             <div class="work-item-aap" aria-hidden="true">
                <div class="work-item-aap__shell">
                   <span class="work-item-aap__bg" aria-hidden="true"></span>
-                  <a href="#" class="work-item-aap__btn">
+                  <a href="#" id="btn-movember" class="work-item-aap__btn" onclick="openCaseStudy('btn-movember'); return false;">
                      <span class="work-item-aap__label">View case study</span>
                      <span class="work-item-aap__icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -147,7 +147,7 @@
             <div class="work-item-aap" aria-hidden="true">
                <div class="work-item-aap__shell">
                   <span class="work-item-aap__bg" aria-hidden="true"></span>
-                  <a href="#" class="work-item-aap__btn">
+                  <a href="#" id="btn-rolld" class="work-item-aap__btn" onclick="openCaseStudy('btn-rolld'); return false;">
                      <span class="work-item-aap__label">View case study</span>
                      <span class="work-item-aap__icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -182,7 +182,7 @@
             <div class="work-item-aap" aria-hidden="true">
                <div class="work-item-aap__shell">
                   <span class="work-item-aap__bg" aria-hidden="true"></span>
-                  <a href="#" class="work-item-aap__btn">
+                  <a href="#" id="btn-samwood" class="work-item-aap__btn" onclick="openCaseStudy('btn-samwood'); return false;">
                      <span class="work-item-aap__label">Case study not available</span>
                      <span class="work-item-aap__icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -210,7 +210,7 @@
                <div class="work-item-aap__shell">
                   <span class="work-item-aap__bg" aria-hidden="true"></span>
                   
-                  <a href="#" class="work-item-aap__btn">
+                  <a href="#" id="btn-vintage" class="work-item-aap__btn" onclick="openCaseStudy('btn-vintage'); return false;">
                      <span class="work-item-aap__label">View older work</span>
                      <span class="work-item-aap__icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -342,6 +342,87 @@
 
          $window.on('resize', updateScrollBackgrounds);
          updateScrollBackgrounds();
+      </script>
+
+      <dialog id="case-study-dialog" class="case-study-dialog" aria-labelledby="case-study-dialog-title">
+         <h2 id="case-study-dialog-title" class="case-study-dialog__title">Case study</h2>
+         <p class="case-study-dialog__text">Enter the password to view this work.</p>
+         <p id="case-study-dialog-error" class="case-study-dialog__error" hidden>Incorrect password.</p>
+         <form id="case-study-dialog-form" class="case-study-dialog__form">
+            <input id="case-study-dialog-input" class="case-study-dialog__input" type="password" name="password" autocomplete="current-password" required>
+            <div class="case-study-dialog__actions">
+               <button type="button" id="case-study-dialog-cancel" class="case-study-dialog__btn case-study-dialog__btn--cancel">Cancel</button>
+               <button type="submit" class="case-study-dialog__btn case-study-dialog__btn--submit">View</button>
+            </div>
+         </form>
+      </dialog>
+
+      <!-- Case study password gate -->
+      <script>
+         var CASE_STUDY_URLS = {
+            'btn-instagram': 'nZLw9G5db/WSdyG4dX0J14BqSjSMfd+ck68gFWYhQe+K6OflXmF/I2cKghufcKBZC3VhHZuj6FOV03MqNPhrj8gG/Z3FCY6zUd6msRmaj2Yu9SNbm5lkPYSvuFSD',
+            'btn-movember':  'iQ3qgqP/sPqukaBYKOTx39VvqPednvK7Ea9VF3asv2bssaquwBD5RjMbGKhx',
+            'btn-rolld':     'BcUQJyfhn8lAbHuw4S4z8ubYW4SHIekCXmQEEX+r2yyJwHJIFMiAcHCxwmnm',
+            'btn-samwood':   'rCCAvR/2yaszWve7+N5SIM6yjONjWccTdTbHe2ypprSAYxuezlsQKoAC4WE8',
+            'btn-vintage':   '/YgFHRtzriaO2X7QU3NAFoWu486u9XbFY4bWe2N88JKMyNCCXl/6gFWVko3d'
+         };
+
+         var caseStudyPendingBtnId = null;
+         var caseStudyDialog       = document.getElementById('case-study-dialog');
+         var caseStudyDialogForm   = document.getElementById('case-study-dialog-form');
+         var caseStudyDialogInput  = document.getElementById('case-study-dialog-input');
+         var caseStudyDialogError  = document.getElementById('case-study-dialog-error');
+         var caseStudyDialogCancel = document.getElementById('case-study-dialog-cancel');
+
+         async function decryptCaseStudyUrl(btnId, password) {
+            var ct = CASE_STUDY_URLS[btnId];
+            if (!ct) return null;
+            var raw  = Uint8Array.from(atob(ct), function (c) { return c.charCodeAt(0); });
+            var salt = raw.slice(0, 16);
+            var iv   = raw.slice(16, 28);
+            var data = raw.slice(28);
+            var key  = await crypto.subtle.deriveKey(
+               { name: 'PBKDF2', salt: salt, iterations: 100000, hash: 'SHA-256' },
+               await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey']),
+               { name: 'AES-GCM', length: 256 }, false, ['decrypt']
+            );
+            var plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, key, data);
+            return new TextDecoder().decode(plain);
+         }
+
+         function openCaseStudy(btnId) {
+            if (!CASE_STUDY_URLS[btnId] || !caseStudyDialog) return;
+            caseStudyPendingBtnId = btnId;
+            caseStudyDialogError.hidden = true;
+            caseStudyDialogInput.value = '';
+            caseStudyDialog.showModal();
+            caseStudyDialogInput.focus();
+         }
+
+         caseStudyDialogForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var btnId  = caseStudyPendingBtnId;
+            var input  = caseStudyDialogInput.value;
+            if (!btnId || !input) return;
+            decryptCaseStudyUrl(btnId, input).then(function (url) {
+               caseStudyDialog.close();
+               caseStudyPendingBtnId = null;
+               window.open(url, '_blank');
+            }).catch(function () {
+               caseStudyDialogError.hidden = false;
+               caseStudyDialogInput.select();
+            });
+         });
+
+         caseStudyDialogCancel.addEventListener('click', function () {
+            caseStudyDialog.close();
+            caseStudyPendingBtnId = null;
+         });
+
+         caseStudyDialog.addEventListener('close', function () {
+            caseStudyPendingBtnId = null;
+            caseStudyDialogError.hidden = true;
+         });
       </script>
 
       <!-- Hero title typing animation -->
