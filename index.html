@@ -384,7 +384,8 @@
 
             function typeChar() {
                if (i >= spans.length) {
-                  /* typing done — instant hide */
+                  /* stop blink animation then hide — animation was overriding opacity */
+                  cursor.style.animation  = 'none';
                   cursor.style.transition = 'none';
                   cursor.style.opacity    = '0';
                   return;
