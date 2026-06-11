@@ -344,19 +344,6 @@
          updateScrollBackgrounds();
       </script>
 
-      <dialog id="case-study-dialog" class="case-study-dialog" aria-labelledby="case-study-dialog-title">
-         <h2 id="case-study-dialog-title" class="case-study-dialog__title">Case study</h2>
-         <p class="case-study-dialog__text">Enter the password to view this work.</p>
-         <p id="case-study-dialog-error" class="case-study-dialog__error" hidden>Incorrect password.</p>
-         <form id="case-study-dialog-form" class="case-study-dialog__form">
-            <input id="case-study-dialog-input" class="case-study-dialog__input" type="password" name="password" autocomplete="current-password" required>
-            <div class="case-study-dialog__actions">
-               <button type="button" id="case-study-dialog-cancel" class="case-study-dialog__btn case-study-dialog__btn--cancel">Cancel</button>
-               <button type="submit" class="case-study-dialog__btn case-study-dialog__btn--submit">View</button>
-            </div>
-         </form>
-      </dialog>
-
       <!-- Case study password gate -->
       <script>
          var CASE_STUDY_URLS = {
@@ -367,62 +354,27 @@
             'btn-vintage':   '/YgFHRtzriaO2X7QU3NAFoWu486u9XbFY4bWe2N88JKMyNCCXl/6gFWVko3d'
          };
 
-         var caseStudyPendingBtnId = null;
-         var caseStudyDialog       = document.getElementById('case-study-dialog');
-         var caseStudyDialogForm   = document.getElementById('case-study-dialog-form');
-         var caseStudyDialogInput  = document.getElementById('case-study-dialog-input');
-         var caseStudyDialogError  = document.getElementById('case-study-dialog-error');
-         var caseStudyDialogCancel = document.getElementById('case-study-dialog-cancel');
-
-         async function decryptCaseStudyUrl(btnId, password) {
+         async function openCaseStudy(btnId) {
             var ct = CASE_STUDY_URLS[btnId];
-            if (!ct) return null;
-            var raw  = Uint8Array.from(atob(ct), function (c) { return c.charCodeAt(0); });
-            var salt = raw.slice(0, 16);
-            var iv   = raw.slice(16, 28);
-            var data = raw.slice(28);
-            var key  = await crypto.subtle.deriveKey(
-               { name: 'PBKDF2', salt: salt, iterations: 100000, hash: 'SHA-256' },
-               await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey']),
-               { name: 'AES-GCM', length: 256 }, false, ['decrypt']
-            );
-            var plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, key, data);
-            return new TextDecoder().decode(plain);
+            if (!ct) return;
+            var input = prompt('Password:');
+            if (!input) return;
+            try {
+               var raw  = Uint8Array.from(atob(ct), function (c) { return c.charCodeAt(0); });
+               var salt = raw.slice(0, 16);
+               var iv   = raw.slice(16, 28);
+               var data = raw.slice(28);
+               var key  = await crypto.subtle.deriveKey(
+                  { name: 'PBKDF2', salt: salt, iterations: 100000, hash: 'SHA-256' },
+                  await crypto.subtle.importKey('raw', new TextEncoder().encode(input), 'PBKDF2', false, ['deriveKey']),
+                  { name: 'AES-GCM', length: 256 }, false, ['decrypt']
+               );
+               var plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, key, data);
+               window.open(new TextDecoder().decode(plain), '_blank');
+            } catch (e) {
+               alert('Incorrect password.');
+            }
          }
-
-         function openCaseStudy(btnId) {
-            if (!CASE_STUDY_URLS[btnId] || !caseStudyDialog) return;
-            caseStudyPendingBtnId = btnId;
-            caseStudyDialogError.hidden = true;
-            caseStudyDialogInput.value = '';
-            caseStudyDialog.showModal();
-            caseStudyDialogInput.focus();
-         }
-
-         caseStudyDialogForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var btnId  = caseStudyPendingBtnId;
-            var input  = caseStudyDialogInput.value;
-            if (!btnId || !input) return;
-            decryptCaseStudyUrl(btnId, input).then(function (url) {
-               caseStudyDialog.close();
-               caseStudyPendingBtnId = null;
-               window.open(url, '_blank');
-            }).catch(function () {
-               caseStudyDialogError.hidden = false;
-               caseStudyDialogInput.select();
-            });
-         });
-
-         caseStudyDialogCancel.addEventListener('click', function () {
-            caseStudyDialog.close();
-            caseStudyPendingBtnId = null;
-         });
-
-         caseStudyDialog.addEventListener('close', function () {
-            caseStudyPendingBtnId = null;
-            caseStudyDialogError.hidden = true;
-         });
       </script>
 
       <!-- Hero title typing animation -->
