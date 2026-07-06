@@ -442,9 +442,13 @@
             }
          })();
 
-         /* Safari/iOS fallback: swap <video> for <img> poster on browsers that can't play VP9/WebM */
+         /* Safari fallback: swap <video> for <img> poster.
+            canPlayType alone is unreliable — Safari 16+ returns "probably" for VP9/WebM
+            but doesn't render the alpha channel, showing a black background instead.
+            Detecting Safari by vendor/UA is more accurate for this specific limitation. */
          (function () {
-            if (document.createElement('video').canPlayType('video/webm; codecs="vp9"')) return;
+            var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+            if (!isSafari) return;
             document.querySelectorAll('.work-item video[poster]').forEach(function (video) {
                var img = document.createElement('img');
                img.src = video.getAttribute('poster');
