@@ -1035,6 +1035,9 @@ video {
     section .work-item h4 {
         padding: 2% 1% 0 0;
     }
+    .work-item {
+        min-height: auto;
+    }
 }
 .center {
     margin: 0 auto;
