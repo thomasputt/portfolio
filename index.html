@@ -441,6 +441,20 @@
                start();
             }
          })();
+
+         /* Safari/iOS fallback: swap <video> for <img> poster on browsers that can't play VP9/WebM */
+         (function () {
+            if (document.createElement('video').canPlayType('video/webm; codecs="vp9"')) return;
+            document.querySelectorAll('.work-item video[poster]').forEach(function (video) {
+               var img = document.createElement('img');
+               img.src = video.getAttribute('poster');
+               img.alt = video.getAttribute('title') || '';
+               img.className = video.className.replace(/\bb-lazy\b/, '').trim();
+               img.style.cssText = video.style.cssText;
+               if (video.id) img.id = video.id;
+               video.parentNode.replaceChild(img, video);
+            });
+         })();
       </script>
    </body>
 </html>
