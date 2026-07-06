@@ -1035,10 +1035,6 @@ video {
     section .work-item h4 {
         padding: 2% 1% 0 0;
     }
-    .work-item-inner {
-        padding-top: 4rem;
-        padding-bottom: 6rem;
-    }
 }
 .center {
     margin: 0 auto;
