@@ -1035,8 +1035,9 @@ video {
     section .work-item h4 {
         padding: 2% 1% 0 0;
     }
-    #rolld {
-        max-width: 68%;
+    .work-item-inner {
+        padding-top: 4rem;
+        padding-bottom: 6rem;
     }
 }
 .center {
