@@ -955,7 +955,7 @@ header.wrapper,
     fill: none;
     stroke: #fff;
     color: #fff;
-    stroke-width: 2.25;
+    stroke-width: 3.5;
 }
 
 @media (prefers-reduced-motion: reduce) {
