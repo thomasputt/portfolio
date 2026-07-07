@@ -348,8 +348,8 @@
       <!-- Case study password gate -->
       <script>
          var CASE_STUDY_URLS = {
-            'btn-instagram': 'iJeDYZTlWVpME45f3QfExG3rOSdyOciH7im4KvFIWHjmD6l0UZh7bKC9KRESSApHTNwbgDV28wXMQQaom41AHKlGBDROvdvBUH1VTuyQ/Wk5vsPTxzdJ',
-            'btn-movember':  'WKdahCu2wMdACbAmvh/7g2T4aBKyITabqt+0LvRnPXWqD+QLwMRitkEorbWRIqwKLbgyvdP+fuUr316BADpZ+CfAWfGPjiIglEmrHdeR7U9vtKQHKDaX',
+            'btn-instagram': '5ptcB0VlwkpBFhxW9VBucLwjgMq6KdaLkH/aEE7SY09ZMQ1lLgV/p1UnV8rHbBZ/wyWA4PGfrf4oE3Bj',
+            'btn-movember':  'JZWA+BFOMUZjnyAbKYy0j2XhAYfG14gsHr383Veq5LBrBQXs0x/DXkc4YyscRT/CvNZec2A92w6DxbrD',
             'btn-rolld':     'BcUQJyfhn8lAbHuw4S4z8ubYW4SHIekCXmQEEX+r2yyJwHJIFMiAcHCxwmnm',
             'btn-samwood':   'rCCAvR/2yaszWve7+N5SIM6yjONjWccTdTbHe2ypprSAYxuezlsQKoAC4WE8',
             'btn-vintage':   '/YgFHRtzriaO2X7QU3NAFoWu486u9XbFY4bWe2N88JKMyNCCXl/6gFWVko3d'
@@ -371,7 +371,7 @@
                   { name: 'AES-GCM', length: 256 }, false, ['decrypt']
                );
                var plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, key, data);
-               window.open(new TextDecoder().decode(plain), '_blank');
+               window.location.href = new TextDecoder().decode(plain);
             } catch (e) {
                alert('Incorrect password.');
             }
