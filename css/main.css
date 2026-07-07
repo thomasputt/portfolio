@@ -657,7 +657,7 @@ h4.colpadding {
 /* Section background accents (scroll layers + work-item AAP icon) */
 :root {
     --scroll-instagram-base: #1a1528;
-    --scroll-movember: #0E0BD8;
+    --scroll-movember: #000000;
     --scroll-rolld: #C62828;
     --scroll-samwood: #FE8835;
     --scroll-vintage: #000000;
