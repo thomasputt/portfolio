@@ -336,8 +336,8 @@
          async function openCaseStudy(btnId) {
             var ct = CASE_STUDY_URLS[btnId];
             if (!ct) return;
-            // TEMP: password gate disabled for job applications — restore prompt('Password:') before re-enabling
-            var input = 'telecaster';
+            var input = prompt('Password:');
+            if (!input) return;
             try {
                var raw  = Uint8Array.from(atob(ct), function (c) { return c.charCodeAt(0); });
                var salt = raw.slice(0, 16);
