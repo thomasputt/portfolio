@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ahm Captures</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#">
+        <span class="brand-mark">ahm</span>
+        <span class="brand-title">Captures</span>
+      </a>
+      <div class="filters">
+        <div class="switch" role="group" aria-label="Viewport">
+          <button type="button" data-vp="web" aria-pressed="true">Web</button>
+          <button type="button" data-vp="mobile" aria-pressed="false">Mobile</button>
+        </div>
+        <label class="select">
+          <span class="sr-only">Persona</span>
+          <select id="persona"></select>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="pills-bar">
+      <div class="pills" id="pills" role="group" aria-label="Companies"></div>
+      <span class="pills-hint">Pick up to 3 to compare</span>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden>
+      <svg class="empty-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="4.5" width="18" height="15" rx="3" />
+        <circle cx="8.5" cy="9.5" r="1.5" />
+        <path d="M3.5 17l5-4.5 3.5 3 3-2.5 5.5 4.5" />
+      </svg>
+      <p class="empty-text" id="empty-text">No captures for this company and persona.</p>
+    </div>
+  </main>
+
+  <div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="Capture viewer">
+    <div class="viewer-bar">
+      <span class="viewer-title" id="viewer-title"></span>
+      <div class="viewer-actions">
+        <a class="btn btn-primary" id="viewer-download" href="#" download>Download</a>
+        <button type="button" class="btn" id="viewer-close">Close</button>
+      </div>
+    </div>
+    <div class="viewer-body" id="viewer-body">
+      <img id="viewer-img" alt="">
+    </div>
+  </div>
+
+  <script src="manifest.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
